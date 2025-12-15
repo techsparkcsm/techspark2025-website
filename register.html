@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRK TECHSPARK 2025 | Event Registration</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, rgba(5,10,40,0.9), rgba(0,0,0,0.9)),
+        url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar {
+      width: 100%;
+      padding: 15px 40px;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      color: #00e5ff;
+    }
+
+    .register-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .register-card {
+      background: rgba(0,0,0,0.75);
+      padding: 35px;
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    .register-card h2 {
+      color: #00e5ff;
+      margin-bottom: 8px;
+    }
+
+    .register-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 22px;
+    }
+
+    .register-card input,
+    .register-card select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 15px;
+    }
+
+    .register-card button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(45deg, #00e5ff, #1de9b6);
+      cursor: pointer;
+    }
+
+    #msg {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.75);
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    footer p { color: #ccc; }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="nav-logo">TECHSPARK 2025</div>
+</nav>
+
+<div class="register-wrapper">
+  <div class="register-card">
+    <h2>Event Registration</h2>
+    <p>Register now for SRK TECHSPARK 2025</p>
+
+    <form id="registerForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="college" placeholder="College Name" required>
+
+      <select name="eventName" id="eventSelect" required>
+        <option value="">Select Event</option>
+        <option>Paper Presentation</option>
+        <option>Technical Quiz</option>
+        <option>Snap2Prompt</option>
+        <option>Reverse Coding</option>
+        <option>Start-Up Pitch</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p id="msg"></p>
+  </div>
+</div>
+
+<footer>
+  <p>© SRK TECHSPARK 2025</p>
+</footer>
+
+<script>
+  const scriptURL =
+  "https://script.google.com/macros/s/AKfycbz1g18gtAloQrK8NppHgUAhBDUTaY-sz1wXwY4QbPJuh7m7ny_t-sDxnt6vR1yj8SAAyw/exec";
+
+  const form = document.getElementById("registerForm");
+  const msg = document.getElementById("msg");
+  const eventSelect = document.getElementById("eventSelect");
+
+  // ✅ AUTO-SELECT EVENT FROM URL
+  const params = new URLSearchParams(window.location.search);
+  const eventFromURL = params.get("event");
+  if (eventFromURL) {
+    eventSelect.value = eventFromURL;
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    msg.innerHTML = "Submitting...";
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(() => {
+      window.location.href = "thankyou.html";
+    })
+    .catch(() => {
+      msg.innerHTML = "❌ Submission failed";
+      msg.style.color = "red";
+    });
+  });
+</script>
+
+</body>
+</html>
