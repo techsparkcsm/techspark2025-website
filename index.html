@@ -1,237 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SRK TECHSPARK 2025 | CSM</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>EXPLORERS MEET-2025 | SRK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    body {
-      min-height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      background:
-        linear-gradient(120deg, rgba(5,8,35,0.9), rgba(0,0,0,0.95)),
-        url("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
+/* ===== BACKGROUND ===== */
+body{
+  color:#fff;
+  background:
+    radial-gradient(circle at center, rgba(0,255,255,.25), transparent 55%),
+    linear-gradient(rgba(6,10,35,.6), rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1800&q=80");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  animation:bgMove 20s linear infinite alternate;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(45deg, #00f0ff, #8f00ff, #00ff9c);
-      opacity: 0.12;
-      animation: hueRotate 10s infinite alternate;
-      z-index: -1;
-    }
+@keyframes bgMove{
+  from{ background-position:center top; }
+  to{ background-position:center bottom; }
+}
 
-    @keyframes hueRotate {
-      from { filter: hue-rotate(0deg); }
-      to { filter: hue-rotate(360deg); }
-    }
+/* TOP RIGHT */
+.top-title{
+  position:fixed;
+  top:12px;
+  right:16px;
+  font-family:'Orbitron',sans-serif;
+  font-size:1rem;
+  opacity:.9;
+  z-index:10;
+}
 
-    header {
-      text-align: center;
-      padding: 70px 20px 40px;
-    }
+/* HERO */
+.hero{
+  text-align:center;
+  padding:70px 16px 10px;
+}
 
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.2rem;
-      color: #00f0ff;
-      text-shadow: 0 0 20px #00f0ff;
-      animation: glow 2s infinite alternate;
-    }
+.hero h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:4.2rem;
+  color:#00ffff;
+  text-shadow:
+    0 0 35px #00ffff,
+    0 0 80px #00eaff,
+    0 0 150px #8f00ff;
+  animation:floatTitle 3s ease-in-out infinite;
+}
 
-    header p {
-      margin-top: 12px;
-      font-size: 1.2rem;
-      color: #ddd;
-    }
+@keyframes floatTitle{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
+  100%{ transform:translateY(0); }
+}
 
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #00f0ff; }
-      to { text-shadow: 0 0 30px #00f0ff, 0 0 60px #8f00ff; }
-    }
+.hero h2{
+  font-size:1.5rem;
+  color:#ff00ff;
+  margin-top:4px;
+  animation:glowPulse 2.5s infinite alternate;
+}
 
-    .icons {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
+@keyframes glowPulse{
+  from{ text-shadow:0 0 10px #ff00ff; }
+  to{ text-shadow:0 0 25px #ff00ff,0 0 45px #00ffff; }
+}
 
-    .icons i {
-      position: absolute;
-      font-size: 26px;
-      color: #00f0ff;
-      opacity: 0.6;
-      animation: floatUp 12s infinite linear;
-    }
+.hero p{
+  max-width:900px;
+  margin:10px auto;
+  font-size:1rem;
+  color:#eaffff;
+  line-height:1.55;
+}
 
-    .icons i:nth-child(1) { left: 12%; top: 90%; }
-    .icons i:nth-child(2) { left: 38%; top: 100%; animation-delay: 2s; }
-    .icons i:nth-child(3) { left: 65%; top: 95%; animation-delay: 4s; }
-    .icons i:nth-child(4) { left: 85%; top: 100%; animation-delay: 6s; }
+/* SECTIONS */
+section{
+  padding:20px 16px;
+  text-align:center;
+}
 
-    @keyframes floatUp {
-      from { transform: translateY(0) rotate(0deg); }
-      to { transform: translateY(-120vh) rotate(360deg); }
-    }
+section h3{
+  font-size:1.9rem;
+  margin-bottom:14px;
+  color:#00ffff;
+  text-shadow:0 0 18px #00ffff;
+}
 
-    .events {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px 60px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+/* EVENTS GRID */
+.event-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
 
-    .events h2 {
-      font-size: 2rem;
-      margin-bottom: 35px;
-      color: #8ffcff;
-      text-shadow: 0 0 15px #00f0ff;
-    }
+.event-link{ text-decoration:none; }
 
-    .event-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 30px;
-    }
+.event-card{
+  height:150px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.25rem;
+  font-weight:600;
+  color:#fff;
+  border:2px solid #00ffff;
+  box-shadow:0 0 35px rgba(0,255,255,.55);
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  opacity:0;
+  transform:translateY(30px) scale(.95);
+  transition:.6s ease;
+}
 
-    /* 🔗 EVENT BUTTON AS LINK */
-    .event-btn {
-      padding: 22px;
-      border-radius: 16px;
-      font-weight: 600;
-      color: #00f0ff;
-      background: rgba(0, 0, 0, 0.65);
-      border: 2px solid #00f0ff;
-      cursor: pointer;
-      transition: 0.4s;
-      text-decoration: none;
-      display: block;
-    }
+.event-card.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
 
-    .event-btn i {
-      font-size: 26px;
-      margin-bottom: 10px;
-      display: block;
-    }
+.event-card:hover{
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 0 45px rgba(0,255,255,.9);
+}
 
-    .event-btn:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 0 25px #00f0ff, 0 0 50px #8f00ff;
-      color: #fff;
-    }
+.event-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
 
-    .map-btn {
-      display: inline-block;
-      margin-top: 45px;
-      padding: 14px 30px;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      text-decoration: none;
-      color: #fff;
-      border: 2px solid #00f0ff;
-      box-shadow: 0 0 20px #00f0ff;
-      transition: 0.4s;
-    }
+.event-card span{
+  position:relative;
+  z-index:2;
+}
 
-    .map-btn:hover {
-      background: #00f0ff;
-      color: #000;
-    }
+/* EVENT IMAGES */
+.poster{background-image:url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f")}
+.paper{background-image:url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f")}
+.quiz{background-image:url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b")}
+.snap{background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475")}
+.startup{background-image:url("https://images.unsplash.com/photo-1559136555-9303baea8ebd")}
+.reverse{background-image:url("https://images.unsplash.com/photo-1504639725590-34d0984388bd")}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: rgba(0,0,0,0.75);
-      margin-top: 40px;
-    }
+/* ABOUT FEST */
+.about-fest{
+  margin-top:25px;
+  text-align:center;
+}
 
-    .socials a {
-      margin: 0 15px;
-      font-size: 26px;
-      color: #00f0ff;
-    }
+.about-fest p{
+  font-size:1.1rem;
+  margin:6px 0;
+  color:#eaffff;
+}
 
-    footer p {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+/* COORDINATORS */
+.coord-box{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.coord{
+  background:rgba(0,0,0,.55);
+  padding:18px;
+  border-radius:16px;
+  box-shadow:0 0 22px rgba(0,255,255,.35);
+}
+
+/* REGISTER */
+.register-section{
+  text-align:center;
+  margin:30px 0 5px;
+}
+
+.calling{
+  font-size:1.1rem;
+  margin-bottom:12px;
+  color:#00ffff;
+}
+
+.register a{
+  padding:14px 36px;
+  background:#00ffff;
+  color:#000;
+  border-radius:30px;
+  font-size:1.15rem;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 35px #00ffff;
+}
+
+.spot{
+  text-align:center;
+  font-size:.95rem;
+  color:#eaffff;
+}
+
+/* FOOTER */
+footer{
+  background:rgba(0,0,0,.9);
+  padding:18px;
+  text-align:center;
+}
+
+footer a{
+  margin:0 12px;
+  font-size:24px;
+  color:#00ffff;
+}
+
+footer p{
+  margin-top:6px;
+  font-size:.85rem;
+  color:#aaa;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+  .event-grid{grid-template-columns:repeat(3,1fr)}
+  .coord-box{grid-template-columns:repeat(2,1fr)}
+}
+</style>
 </head>
 
 <body>
 
-<div class="icons">
-  <i class="fas fa-robot"></i>
-  <i class="fas fa-brain"></i>
-  <i class="fas fa-microchip"></i>
-  <i class="fas fa-network-wired"></i>
+<div class="top-title">SRK TECHSPARK 2025</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>EXPLORERS MEET-2025</h1>
+  <h2>Department of CSE – AI & ML</h2>
+  <p>
+    Techspak 2025 is where data turns into intelligence and ideas evolve into impact.
+Explore the power of Artificial Intelligence and Machine Learning through innovation, experimentation, and collaboration.This is not just a fest — it’s a launchpad for future innovators.
+Be part of Techspak 2025 and create the intelligence that defines the next generation.
+  </p>
 </div>
 
-<header>
-  <h1>SRK TECHSPARK 2025</h1>
-  <p>Conducted by CSM Department</p>
-</header>
+<!-- EVENTS -->
+<section>
+  <h3>Technical Events</h3>
+  <div class="event-grid">
 
-<section class="events">
-  <h2>Technical Events</h2>
-
-  <div class="event-buttons">
-    <a href="poster-presentation.html" class="event-btn">
-      <i class="fas fa-palette"></i>Poster Presentation
+    <a href="poster-presentation.html" class="event-link">
+      <div class="event-card poster"><span>Digital Poster Presentation</span></div>
     </a>
 
-    <a href="technical-quiz.html" class="event-btn">
-      <i class="fas fa-question-circle"></i>Technical Quiz
+    <a href="paper-presentation.html" class="event-link">
+      <div class="event-card paper"><span>Paper Presentation</span></div>
     </a>
 
-    <a href="snap2prompt.html" class="event-btn">
-      <i class="fas fa-image"></i>Snap2Prompt
+    <a href="technical-quiz.html" class="event-link">
+      <div class="event-card quiz"><span>Technical Quiz</span></div>
     </a>
 
-    <a href="startup-pitch.html" class="event-btn">
-      <i class="fas fa-lightbulb"></i>Start-Up Pitch
+    <a href="snap2prompt.html" class="event-link">
+      <div class="event-card snap"><span>Snap2Prompt</span></div>
     </a>
 
-    <a href="reverse-coding.html" class="event-btn">
-      <i class="fas fa-code"></i>Reverse Coding
+    <a href="startup-pitch.html" class="event-link">
+      <div class="event-card startup"><span>Start-Up Pitch</span></div>
     </a>
+
+    <a href="reverse-coding.html" class="event-link">
+      <div class="event-card reverse"><span>Reverse Coding</span></div>
+    </a>
+
   </div>
 
-  <a class="map-btn" target="_blank"
-     href="https://www.google.com/maps/search/?api=1&query=SRK+Institute+of+Technology">
-    <i class="fas fa-map-marker-alt"></i> View SRKIT Location
-  </a>
+  <!-- ABOUT FEST -->
+  <div class="about-fest">
+    <p><strong>Think in data.</strong></p>
+    <p><strong>Learn with models.</strong></p>
+    <p><strong>Lead with intelligence.</strong></p>
+  </div>
+
 </section>
 
-<!-- FOOTER -->
+<!-- COORDINATORS -->
+<section>
+  <h3>Coordinators</h3>
+  <div class="coord-box">
+    <div class="coord">
+      <h4>Ch. Jeevana Priya</h4>
+      <p>Faculty Coordinator</p>
+      <p>📞 9533706264</p>
+    </div>
+    <div class="coord">
+      <h4>S. Madhav Karthikeya</h4>
+      <p>Student Coordinator</p>
+      <p>📞 7680950344</p>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<div class="register-section">
+  <div class="calling">Calling all curious minds and future innovators!</div>
+  <div class="register">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfE1cCY-2dmgObOa88RKQQvollhCOIraCSNFvwLuwZXbQvyHA/viewform" target="_blank">
+      Register Here
+    </a>
+  </div>
+</div>
+
+<div class="spot"><strong>Spot Registrations Are Available</strong></div>
+
 <footer>
-  <p>Follow SRK Institute of Technology</p>
-  <div class="social-icons">
+  <div>
     <a href="https://www.instagram.com/srk_college_official_updates" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://youtube.com/@srkinstituteoftechnology" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://www.linkedin.com/school/srk-institute-of-technology-enikepadu-vijayawada-521108-cc-x4-/" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
+  <p>© 2025 SRK Institute of Technology</p>
 </footer>
+
+<script>
+const cards = document.querySelectorAll('.event-card');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.25});
+cards.forEach(card=>observer.observe(card));
+</script>
 
 </body>
 </html>

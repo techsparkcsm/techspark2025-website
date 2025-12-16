@@ -14,18 +14,20 @@
   <style>
     *{ margin:0; padding:0; box-sizing:border-box; }
 
-    /* ===== BODY WITH QUIZ / AI BACKGROUND ===== */
-    body{
-      min-height:100vh;
-      font-family:'Poppins', sans-serif;
-      color:#fff;
-      background:
-        linear-gradient(120deg, rgba(6,10,45,0.92), rgba(0,0,0,0.97)),
-        url("https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80");
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-    }
+    /* ===== QUIZ / KNOWLEDGE BACKGROUND (UPDATED) ===== */
+body{
+  min-height:100vh;
+  font-family:'Poppins', sans-serif;
+  color:#fff;
+  background:
+    linear-gradient(120deg, rgba(6,10,40,0.65), rgba(0,0,0,0.85)),
+    url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=80");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+
 
     /* ===== Header ===== */
     header{
@@ -54,7 +56,7 @@
     }
 
     .card{
-      background:rgba(0,0,0,0.75);
+      background:rgba(0,0,0,0.65);
       padding:40px;
       border-radius:22px;
       box-shadow:0 0 30px rgba(0,240,255,0.3);
@@ -75,6 +77,14 @@
     .rules li{
       margin-bottom:12px;
       line-height:1.6;
+    }
+
+    /* ===== PAYMENT (SIMPLE TEXT) ===== */
+    .payment{
+      margin-top:15px;
+      font-size:1rem;
+      color:#ccc;
+      text-align:left;
     }
 
     /* ===== Buttons ===== */
@@ -101,7 +111,7 @@
       box-shadow:0 0 45px #00f0ff;
     }
 
-    /* ===== Footer (NOT REMOVED) ===== */
+    /* ===== Footer ===== */
     footer{
       margin-top:40px;
       text-align:center;
@@ -109,16 +119,10 @@
       background:rgba(0,0,0,0.75);
     }
 
-    .socials a{
+    footer a{
       margin:0 15px;
       font-size:26px;
       color:#00f0ff;
-      transition:0.4s;
-    }
-
-    .socials a:hover{
-      color:#fff;
-      text-shadow:0 0 20px #00f0ff;
     }
 
     footer p{
@@ -138,7 +142,7 @@
 
 <header>
   <h1>Technical Quiz</h1>
-  <p>SRK TECHSPARK 2025 | CSM Department</p>
+  <p>SRK TECHSPARK 2025 | Department of CSE – AI & ML</p>
 </header>
 
 <div class="container">
@@ -152,26 +156,27 @@
       focusing on speed, accuracy, and conceptual clarity.
     </p>
 
-  
-
     <h2>Rules & Guidelines</h2>
     <ol class="rules">
       <li>Participants can register for the quiz online or spot registration is also available.</li>
       <li>The quiz time limit is 20 minutes.</li>
       <li>Registered participants must wear their college ID card during the competition.</li>
       <li>Participants are not allowed to switch tabs/apps during the quiz.</li>
-      <li>Mobile phones are not permitted during the competition. Participants found using a mobile phone will be kindly disqualified.</li>
+      <li>Mobile phones are not permitted during the competition.</li>
       <li>The quiz will begin exactly at the scheduled time.</li>
       <li>The quiz will contain multiple-choice questions.</li>
       <li>Once the time is over, answers will be auto-submitted.</li>
       <li>Results will be generated based on the highest score and least time taken.</li>
       <li>Contact the student coordinator for further assistance.</li>
     </ol>
- <!-- Register button in middle -->
+
+    <!-- PAYMENT DETAILS -->
+    <div class="payment">
+      <strong>Amount per person:</strong> 50 Rupees
+    </div>
+
+    <!-- BACK TO HOME -->
     <div class="center">
-      <a href="register.html" class="btn">
-        <i class="fas fa-pen-to-square"></i> Register Now
-      </a>
       <a href="index.html" class="btn">
         <i class="fas fa-house"></i> Back to Home
       </a>
