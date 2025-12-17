@@ -75,12 +75,38 @@
       line-height:1.6;
     }
 
-    /* PAYMENT */
-    .payment{
-      margin-top:18px;
-      font-size:1rem;
-      color:#ccc;
-      text-align:left;
+    /* ===== COORDINATORS ===== */
+    .coordinators{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
+    }
+
+    .coord-box{
+      background:rgba(0,0,0,0.75);
+      border:2px solid #00f0ff;
+      border-radius:18px;
+      padding:22px;
+      text-align:center;
+      box-shadow:0 0 22px rgba(0,240,255,0.35);
+      transition:0.3s;
+    }
+
+    .coord-box:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 40px rgba(0,240,255,0.6);
+    }
+
+    .coord-box h3{
+      color:#00f0ff;
+      margin-bottom:10px;
+    }
+
+    .coord-box p{
+      margin:6px 0;
+      font-size:0.95rem;
+      color:#ddd;
     }
 
     .center{text-align:center}
@@ -158,14 +184,26 @@
       <li>Plagiarism will lead to immediate disqualification.</li>
       <li>Judging criteria include innovation, technical content, clarity, and presentation.</li>
       <li>The judges’ decision will be final.</li>
+      <li>Registration amount per person is 100 rupees.</li>
     </ol>
 
-    <!-- PAYMENT -->
-    <div class="payment">
-      <strong>Amount per person:</strong> 100 Rupees
+    <h2>Event Coordinators</h2>
+    <div class="coordinators">
+
+      <div class="coord-box">
+        <h3>Faculty Coordinator</h3>
+        <p><strong>Dr.D.Anusha</strong></p>
+        <p><i class="fas fa-phone"></i> 8886123576</p>
+      </div>
+
+      <div class="coord-box">
+        <h3>Student Coordinator</h3>
+        <p><strong>Sk.Shabnam</strong></p>
+        <p><i class="fas fa-phone"></i> 9550458722</p>
+      </div>
+
     </div>
 
-    <!-- BACK -->
     <div class="center">
       <a href="index.html" class="btn">
         <i class="fas fa-house"></i> Back to Home

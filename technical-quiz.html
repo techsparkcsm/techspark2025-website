@@ -14,20 +14,18 @@
   <style>
     *{ margin:0; padding:0; box-sizing:border-box; }
 
-    /* ===== QUIZ / KNOWLEDGE BACKGROUND (UPDATED) ===== */
-body{
-  min-height:100vh;
-  font-family:'Poppins', sans-serif;
-  color:#fff;
-  background:
-    linear-gradient(120deg, rgba(6,10,40,0.65), rgba(0,0,0,0.85)),
-    url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=80");
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-}
-
-
+    /* ===== QUIZ BACKGROUND ===== */
+    body{
+      min-height:100vh;
+      font-family:'Poppins', sans-serif;
+      color:#fff;
+      background:
+        linear-gradient(120deg, rgba(6,10,40,0.65), rgba(0,0,0,0.85)),
+        url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=80");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
 
     /* ===== Header ===== */
     header{
@@ -68,6 +66,11 @@ body{
       text-shadow:0 0 10px #00f0ff;
     }
 
+    h3{
+      color:#8ffcff;
+      margin:25px 0 15px;
+    }
+
     p{
       line-height:1.8;
       color:#ddd;
@@ -79,12 +82,38 @@ body{
       line-height:1.6;
     }
 
-    /* ===== PAYMENT (SIMPLE TEXT) ===== */
-    .payment{
-      margin-top:15px;
-      font-size:1rem;
-      color:#ccc;
-      text-align:left;
+    /* ===== COORDINATORS ===== */
+    .coordinators{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
+    }
+
+    .coord-box{
+      background:rgba(0,0,0,0.75);
+      border:2px solid #00f0ff;
+      border-radius:18px;
+      padding:22px;
+      text-align:center;
+      box-shadow:0 0 22px rgba(0,240,255,0.35);
+      transition:0.3s;
+    }
+
+    .coord-box:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 40px rgba(0,240,255,0.6);
+    }
+
+    .coord-box h4{
+      color:#00f0ff;
+      margin-bottom:6px;
+    }
+
+    .coord-box p{
+      margin:6px 0;
+      font-size:0.95rem;
+      color:#ddd;
     }
 
     /* ===== Buttons ===== */
@@ -158,24 +187,35 @@ body{
 
     <h2>Rules & Guidelines</h2>
     <ol class="rules">
-      <li>Participants can register for the quiz online or spot registration is also available.</li>
-      <li>The quiz time limit is 20 minutes.</li>
-      <li>Registered participants must wear their college ID card during the competition.</li>
-      <li>Participants are not allowed to switch tabs/apps during the quiz.</li>
-      <li>Mobile phones are not permitted during the competition.</li>
-      <li>The quiz will begin exactly at the scheduled time.</li>
-      <li>The quiz will contain multiple-choice questions.</li>
-      <li>Once the time is over, answers will be auto-submitted.</li>
-      <li>Results will be generated based on the highest score and least time taken.</li>
-      <li>Contact the student coordinator for further assistance.</li>
+      <li>Participants can register online or through spot registration.</li>
+      <li>The quiz duration is 20 minutes.</li>
+      <li>Participants must wear their college ID card.</li>
+      <li>Switching tabs or using mobile phones is prohibited.</li>
+      <li>The quiz will start exactly at the scheduled time.</li>
+      <li>All questions will be multiple-choice.</li>
+      <li>Answers will be auto-submitted after time completion.</li>
+      <li>Results are based on highest score and least time taken.</li>
+      <li>Follow instructions given by the coordinators.</li>
+      <li>Registration amount per person is 50 rupees.</li>
     </ol>
 
-    <!-- PAYMENT DETAILS -->
-    <div class="payment">
-      <strong>Amount per person:</strong> 50 Rupees
+    <h2>Event Coordinators</h2>
+    <div class="coordinators">
+
+      <div class="coord-box">
+        <h4>M.Maha Laxshmi</h4>
+        <p>Faculty Coordinator</p>
+        <p><i class="fas fa-phone"></i> 8125146209</p>
+      </div>
+
+      <div class="coord-box">
+        <h4>N.Rupesh</h4>
+        <p>Student Coordinator</p>
+        <p><i class="fas fa-phone"></i> 7893233757</p>
+      </div>
+
     </div>
 
-    <!-- BACK TO HOME -->
     <div class="center">
       <a href="index.html" class="btn">
         <i class="fas fa-house"></i> Back to Home
@@ -185,10 +225,9 @@ body{
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>Follow SRK Institute of Technology</p>
-  <div class="social-icons">
+  <div>
     <a href="https://www.instagram.com/srk_college_official_updates" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://youtube.com/@srkinstituteoftechnology" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://www.linkedin.com/school/srk-institute-of-technology-enikepadu-vijayawada-521108-cc-x4-/" target="_blank"><i class="fab fa-linkedin"></i></a>

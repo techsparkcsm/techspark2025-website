@@ -14,22 +14,20 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
 
-    /* ===== SNAP2PROMPT / AI PROMPT BACKGROUND ===== */
- body{
-  min-height:100vh;
-  font-family:'Poppins',sans-serif;
-  color:#fff;
-  background:
-    linear-gradient(120deg, rgba(6,10,40,0.6), rgba(0,0,0,0.75)),
-    url("https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1800&q=80");
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-}
+    /* ===== SNAP2PROMPT BACKGROUND ===== */
+    body{
+      min-height:100vh;
+      font-family:'Poppins',sans-serif;
+      color:#fff;
+      background:
+        linear-gradient(120deg, rgba(6,10,40,0.6), rgba(0,0,0,0.75)),
+        url("https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1800&q=80");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
 
-
-
-
+    /* ===== Header ===== */
     header{
       text-align:center;
       padding:60px 20px 30px;
@@ -48,6 +46,7 @@
       color:#ddd;
     }
 
+    /* ===== Content ===== */
     .container{
       max-width:1000px;
       margin:auto;
@@ -67,6 +66,11 @@
       text-shadow:0 0 10px #00f0ff;
     }
 
+    h3{
+      color:#8ffcff;
+      margin:25px 0 15px;
+    }
+
     p{
       line-height:1.8;
       color:#ddd;
@@ -78,14 +82,41 @@
       line-height:1.6;
     }
 
-    /* ===== PAYMENT (SIMPLE TEXT) ===== */
-    .payment{
-      margin-top:18px;
-      font-size:1rem;
-      color:#ccc;
-      text-align:left;
+    /* ===== COORDINATORS ===== */
+    .coordinators{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
     }
 
+    .coord-box{
+      background:rgba(0,0,0,0.75);
+      border:2px solid #00f0ff;
+      border-radius:18px;
+      padding:22px;
+      text-align:center;
+      box-shadow:0 0 22px rgba(0,240,255,0.35);
+      transition:0.3s;
+    }
+
+    .coord-box:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 40px rgba(0,240,255,0.6);
+    }
+
+    .coord-box h4{
+      color:#00f0ff;
+      margin-bottom:6px;
+    }
+
+    .coord-box p{
+      margin:6px 0;
+      font-size:0.95rem;
+      color:#ddd;
+    }
+
+    /* ===== Buttons ===== */
     .center{text-align:center}
 
     .btn{
@@ -109,6 +140,7 @@
       box-shadow:0 0 45px #00f0ff;
     }
 
+    /* ===== Footer ===== */
     footer{
       margin-top:40px;
       text-align:center;
@@ -153,49 +185,38 @@
       and effective communication with generative AI systems.
     </p>
 
-    <h2>✅ Do’s of Snap2Prompt</h2>
+    <h2>Rules & Regulations</h2>
     <ol>
-      <li><strong>Do be explicit about the goal</strong> – clearly state why the image is shown.</li>
-      <li><strong>Do provide context</strong> that the image alone cannot convey.</li>
-      <li><strong>Do structure your prompt</strong> (Context, Image, Task, Output).</li>
-      <li><strong>Do tell the model what to ignore</strong> (ads, timestamps, noise).</li>
-      <li><strong>Do specify the output format</strong> (bullets, JSON, rewrite, etc.).</li>
-      <li><strong>Do use constraints</strong> like tone, length, and style.</li>
+      <li>Participation is individual only.</li>
+      <li>A random image will be provided at the start of the event.</li>
+      <li>Participants must analyze the image carefully.</li>
+      <li>Create an effective AI prompt based on the given image.</li>
+      <li>The prompt must be original, clear, and well-optimized.</li>
+      <li>AI tools such as ChatGPT, Gemini, Copilot, or Midjourney/DALL·E may be used (as permitted).</li>
+      <li>Internet access is allowed only for using AI tools.</li>
+      <li>Pre-written or copied prompts/outputs are strictly prohibited.</li>
+      <li>Submissions must include the image, final prompt, and generated output.</li>
+      <li>Winners are decided based on prompt quality, creativity, relevance, and explanation.</li>
+      <li>Registration amount per person is 50 rupees.</li>
     </ol>
 
-    <h2>❌ Don’ts of Snap2Prompt</h2>
-    <ol>
-      <li>Don’t rely on the image to infer intent.</li>
-      <li>Don’t include unnecessary screenshots.</li>
-      <li>Don’t ask overly broad questions.</li>
-      <li>Don’t assume perfect OCR.</li>
-      <li>Don’t include sensitive information.</li>
-      <li>Don’t leave instructions vague.</li>
-    </ol>
+    <h2>Event Coordinators</h2>
+    <div class="coordinators">
 
-    <h2>🎁 Snap2Prompt Template (Best Practice)</h2>
-    <p>
-      <strong>You will see an image.</strong><br>
-      Context: [describe project or purpose]<br>
-      Image type: [screenshot/photo/diagram/UI/etc.]
-    </p>
-    <p>
-      <strong>Your task:</strong><br>
-      1) Extract key visible elements<br>
-      2) Ignore: [ads, timestamps, icons, etc.]<br>
-      3) Produce: [summary, rewrite, analysis, etc.]
-    </p>
-    <p>
-      Constraints: [tone, length, format]<br>
-      Output format: [bullets / JSON / etc.]
-    </p>
+      <div class="coord-box">
+        <h4>B.jessi Kiranmai</h4>
+        <p>Faculty Coordinator</p>
+        <p><i class="fas fa-phone"></i> 8520036337</p>
+      </div>
 
-    <!-- PAYMENT DETAILS -->
-    <div class="payment">
-      <strong>Amount per person:</strong> 50 Rupees
+      <div class="coord-box">
+        <h4>V.Kalyani</h4>
+        <p>Student Coordinator</p>
+        <p><i class="fas fa-phone"></i> 9346003629</p>
+      </div>
+
     </div>
 
-    <!-- BACK TO HOME -->
     <div class="center">
       <a href="index.html" class="btn">
         <i class="fas fa-house"></i> Back to Home
@@ -205,10 +226,9 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>Follow SRK Institute of Technology</p>
-  <div class="social-icons">
+  <div>
     <a href="https://www.instagram.com/srk_college_official_updates" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://youtube.com/@srkinstituteoftechnology" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://www.linkedin.com/school/srk-institute-of-technology-enikepadu-vijayawada-521108-cc-x4-/" target="_blank"><i class="fab fa-linkedin"></i></a>

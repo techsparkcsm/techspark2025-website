@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Event Registration | SRK TECHSPARK 2025</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,.25), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255,0,255,.25), transparent 40%),
+    linear-gradient(135deg, #050a24, #000);
+  background-size:200% 200%;
+  animation:bgMove 15s ease-in-out infinite;
+  color:#fff;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.form-box{
+  width:100%;
+  max-width:450px;
+  background:rgba(0,0,0,.65);
+  padding:35px 30px;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(0,255,255,.35);
+}
+
+.form-box h1{
+  text-align:center;
+  font-family:'Orbitron',sans-serif;
+  color:#00ffff;
+  margin-bottom:8px;
+}
+
+.form-box p{
+  text-align:center;
+  font-size:.9rem;
+  color:#ccc;
+  margin-bottom:25px;
+}
+
+.input-group{margin-bottom:16px;}
+.input-group label{
+  display:block;
+  font-size:.9rem;
+  margin-bottom:6px;
+  color:#00ffff;
+}
+.input-group input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+}
+
+.events{margin:18px 0;}
+.events h3{
+  font-size:1rem;
+  color:#00ffff;
+  margin-bottom:10px;
+}
+
+.event-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+  font-size:.95rem;
+}
+
+.event-item input{
+  accent-color:#00ffff;
+  transform:scale(1.1);
+}
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:#00ffff;
+  color:#000;
+  font-size:1.1rem;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.note{
+  text-align:center;
+  font-size:.75rem;
+  margin-top:12px;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+  <h1>Register Now</h1>
+  <p>SRK TECHSPARK 2025</p>
+
+  <!-- ✅ CONNECTED TO GOOGLE APPS SCRIPT -->
+  <form id="regForm">
+
+    <div class="input-group">
+      <label>Full Name</label>
+      <input type="text" name="name" required>
+    </div>
+
+    <div class="input-group">
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div class="input-group">
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+    </div>
+
+    <div class="input-group">
+      <label>College Name</label>
+      <input type="text" name="college" required>
+    </div>
+
+    <div class="events">
+      <h3>Select Events</h3>
+
+      <div class="event-item">
+      <input type="checkbox" class="eventCheck" value="Digital Poster Presentation"> Digital Poster Presentation
+      </div>
+      <div class="event-item">
+        <input type="checkbox" class="eventCheck" value="Paper Presentation">Paper Presentation
+      </div>
+      <div class="event-item">
+        <input type="checkbox" class="eventCheck" value="Technical Quiz"> Technical Quiz
+      </div>
+      <div class="event-item">
+        <input type="checkbox" class="eventCheck" value="Snap2Prompt"> Snap2Prompt
+      </div>
+      <div class="event-item">
+        <input type="checkbox" class="eventCheck" value="Start-Up Pitch"> Start-Up Pitch
+      </div>
+      <div class="event-item">
+        <input type="checkbox" class="eventCheck" value="Reverse Coding"> Reverse Coding
+      </div>
+    </div>
+<input type="hidden" name="events" id="eventsField">
+
+    <button type="submit">Submit Registration</button>
+  </form>
+
+  <div class="note">You will receive confirmation after submission</div>
+</div>
+
+<script>
+const form = document.getElementById("regForm");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const selectedEvents = [];
+  document.querySelectorAll(".eventCheck:checked").forEach(cb => {
+    selectedEvents.push(cb.value);
+  });
+
+  if (selectedEvents.length === 0) {
+    alert("Please select at least one event");
+    return;
+  }
+
+  document.getElementById("eventsField").value = selectedEvents.join(",");
+
+  fetch("https://script.google.com/macros/s/AKfycbyCWCJKB8z0uGeVNke1Nse0eKsrQTOK5-CTcdpshiVaoNOI2rEl4rxlqe8-WxBEQI2eXw/exec", {
+    method: "POST",
+    body: new FormData(form),
+    mode: "no-cors"
+  });
+
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 800);
+});
+</script>
+
+</body>
+</html>

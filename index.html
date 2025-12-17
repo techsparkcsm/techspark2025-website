@@ -19,22 +19,29 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* ===== BACKGROUND ===== */
+html,body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+/* ===== INDEX PAGE BACKGROUND ANIMATION ===== */
 body{
   color:#fff;
   background:
-    radial-gradient(circle at center, rgba(0,255,255,.25), transparent 55%),
-    linear-gradient(rgba(6,10,35,.6), rgba(0,0,0,.75)),
+    radial-gradient(circle at 20% 30%, rgba(0,255,255,.25), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(138,43,226,.25), transparent 40%),
+    linear-gradient(rgba(6,10,35,.7), rgba(0,0,0,.85)),
     url("https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1800&q=80");
-  background-size:cover;
-  background-position:center;
+  background-size:200% 200%,200% 200%,cover,cover;
+  background-position:0% 50%,100% 50%,center,center;
   background-attachment:fixed;
-  animation:bgMove 20s linear infinite alternate;
+  animation:bgAnimate 18s ease-in-out infinite;
 }
 
-@keyframes bgMove{
-  from{ background-position:center top; }
-  to{ background-position:center bottom; }
+@keyframes bgAnimate{
+  0%{background-position:0% 50%,100% 50%,center,center;}
+  50%{background-position:100% 50%,0% 50%,center,center;}
+  100%{background-position:0% 50%,100% 50%,center,center;}
 }
 
 /* TOP RIGHT */
@@ -51,55 +58,40 @@ body{
 /* HERO */
 .hero{
   text-align:center;
-  padding:70px 16px 10px;
+  padding:70px 16px 20px;
 }
 
 .hero h1{
   font-family:'Orbitron',sans-serif;
   font-size:4.2rem;
   color:#00ffff;
-  text-shadow:
-    0 0 35px #00ffff,
-    0 0 80px #00eaff,
-    0 0 150px #8f00ff;
-  animation:floatTitle 3s ease-in-out infinite;
-}
-
-@keyframes floatTitle{
-  0%{ transform:translateY(0); }
-  50%{ transform:translateY(-8px); }
-  100%{ transform:translateY(0); }
+  text-shadow:0 0 35px #00ffff,0 0 80px #00eaff,0 0 150px #8f00ff;
 }
 
 .hero h2{
   font-size:1.5rem;
   color:#ff00ff;
-  margin-top:4px;
-  animation:glowPulse 2.5s infinite alternate;
-}
-
-@keyframes glowPulse{
-  from{ text-shadow:0 0 10px #ff00ff; }
-  to{ text-shadow:0 0 25px #ff00ff,0 0 45px #00ffff; }
+  margin-top:6px;
 }
 
 .hero p{
   max-width:900px;
-  margin:10px auto;
+  margin:14px auto;
   font-size:1rem;
   color:#eaffff;
   line-height:1.55;
+  padding:0 10px;
 }
 
 /* SECTIONS */
 section{
-  padding:20px 16px;
+  padding:25px 16px;
   text-align:center;
 }
 
 section h3{
   font-size:1.9rem;
-  margin-bottom:14px;
+  margin-bottom:16px;
   color:#00ffff;
   text-shadow:0 0 18px #00ffff;
 }
@@ -108,13 +100,13 @@ section h3{
 .event-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:15px;
+  gap:18px;
 }
 
-.event-link{ text-decoration:none; }
+.event-link{text-decoration:none}
 
 .event-card{
-  height:150px;
+  height:160px;
   border-radius:18px;
   display:flex;
   align-items:center;
@@ -128,8 +120,8 @@ section h3{
   background-position:center;
   position:relative;
   opacity:0;
-  transform:translateY(30px) scale(.95);
-  transition:.6s ease;
+  transform:translateY(60px) scale(.92);
+  transition:all .8s ease;
 }
 
 .event-card.show{
@@ -137,16 +129,11 @@ section h3{
   transform:translateY(0) scale(1);
 }
 
-.event-card:hover{
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 0 45px rgba(0,255,255,.9);
-}
-
 .event-card::before{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.25);
 }
 
 .event-card span{
@@ -154,33 +141,49 @@ section h3{
   z-index:2;
 }
 
-/* EVENT IMAGES */
-.poster{background-image:url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f")}
-.paper{background-image:url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f")}
-.quiz{background-image:url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b")}
-.snap{background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475")}
-.startup{background-image:url("https://images.unsplash.com/photo-1559136555-9303baea8ebd")}
-.reverse{background-image:url("https://images.unsplash.com/photo-1504639725590-34d0984388bd")}
+/* === EVENT-RELATED BACKGROUND IMAGES === */
 
-/* ABOUT FEST */
-.about-fest{
-  margin-top:25px;
-  text-align:center;
+/* Digital Poster Presentation – design & creativity */
+.poster{
+  background-image:url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80");
 }
 
-.about-fest p{
-  font-size:1.1rem;
-  margin:6px 0;
+/* Paper Presentation – research & academics */
+.paper{
+  background-image:url("https://images.unsplash.com/photo-1457694587812-e8bf29a43845?auto=format&fit=crop&w=1200&q=80");
+}
+
+.quiz{
+  background-image:url("https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1200&q=80");
+}
+
+.snap{
+  background-image:url("https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1200&q=80");
+}
+.startup{
+  background-image:url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
+}
+.reverse{
+  background-image:url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80");
+}
+
+/* TAGLINE */
+.tagline{
+  margin-top:30px;
+}
+.tagline p{
+  font-size:1.15rem;
   color:#eaffff;
+  margin:6px 0;
+  font-weight:600;
 }
 
 /* COORDINATORS */
 .coord-box{
   display:grid;
   grid-template-columns:1fr;
-  gap:14px;
+  gap:16px;
 }
-
 .coord{
   background:rgba(0,0,0,.55);
   padding:18px;
@@ -191,15 +194,13 @@ section h3{
 /* REGISTER */
 .register-section{
   text-align:center;
-  margin:30px 0 5px;
+  margin:35px 0 30px;
 }
-
 .calling{
   font-size:1.1rem;
   margin-bottom:12px;
   color:#00ffff;
 }
-
 .register a{
   padding:14px 36px;
   background:#00ffff;
@@ -208,35 +209,69 @@ section h3{
   font-size:1.15rem;
   font-weight:700;
   text-decoration:none;
-  box-shadow:0 0 35px #00ffff;
+  box-shadow:0 0 30px #00ffff;
 }
-
 .spot{
   text-align:center;
   font-size:.95rem;
   color:#eaffff;
+  margin-bottom:90px;
+}
+
+/* LOCATION */
+.srkit-location{
+  position:fixed;
+  bottom:70px;
+  left:14px;
+  background:rgba(0,0,0,.85);
+  padding:12px 16px;
+  border-radius:16px;
+  font-size:.85rem;
+  color:#eaffff;
+  z-index:20;
+}
+.srkit-location i{
+  color:#00ffff;
+  margin-right:6px;
+}
+
+/* LOCATION BUTTON */
+.location-btn{
+  position:fixed;
+  bottom:14px;
+  left:14px;
+  padding:12px 28px;
+  background:#00ffff;
+  color:#000;
+  font-weight:700;
+  border-radius:30px;
+  text-decoration:none;
+  box-shadow:0 0 30px #00ffff;
+  z-index:20;
 }
 
 /* FOOTER */
 footer{
-  background:rgba(0,0,0,.9);
-  padding:18px;
+  position:fixed;
+  bottom:14px;
+  right:14px;
+  background:rgba(0,0,0,.85);
+  padding:12px 16px;
+  border-radius:16px;
   text-align:center;
+  z-index:20;
 }
-
 footer a{
-  margin:0 12px;
-  font-size:24px;
+  margin:0 8px;
+  font-size:22px;
   color:#00ffff;
 }
-
 footer p{
-  margin-top:6px;
-  font-size:.85rem;
+  margin-top:4px;
+  font-size:.75rem;
   color:#aaa;
 }
 
-/* DESKTOP */
 @media(min-width:768px){
   .event-grid{grid-template-columns:repeat(3,1fr)}
   .coord-box{grid-template-columns:repeat(2,1fr)}
@@ -248,58 +283,34 @@ footer p{
 
 <div class="top-title">SRK TECHSPARK 2025</div>
 
-<!-- HERO -->
 <div class="hero">
-  <h1>EXPLORERS MEET-2025</h1>
+  <h1>SRK TECHSPARK-2025</h1>
   <h2>Department of CSE – AI & ML</h2>
   <p>
     Techspak 2025 is where data turns into intelligence and ideas evolve into impact.
-Explore the power of Artificial Intelligence and Machine Learning through innovation, experimentation, and collaboration.This is not just a fest — it’s a launchpad for future innovators.
-Be part of Techspak 2025 and create the intelligence that defines the next generation.
+    Explore the power of Artificial Intelligence and Machine Learning through innovation,
+    experimentation, and collaboration.
   </p>
 </div>
 
-<!-- EVENTS -->
 <section>
   <h3>Technical Events</h3>
   <div class="event-grid">
-
-    <a href="poster-presentation.html" class="event-link">
-      <div class="event-card poster"><span>Digital Poster Presentation</span></div>
-    </a>
-
-    <a href="paper-presentation.html" class="event-link">
-      <div class="event-card paper"><span>Paper Presentation</span></div>
-    </a>
-
-    <a href="technical-quiz.html" class="event-link">
-      <div class="event-card quiz"><span>Technical Quiz</span></div>
-    </a>
-
-    <a href="snap2prompt.html" class="event-link">
-      <div class="event-card snap"><span>Snap2Prompt</span></div>
-    </a>
-
-    <a href="startup-pitch.html" class="event-link">
-      <div class="event-card startup"><span>Start-Up Pitch</span></div>
-    </a>
-
-    <a href="reverse-coding.html" class="event-link">
-      <div class="event-card reverse"><span>Reverse Coding</span></div>
-    </a>
-
+    <a href="poster-presentation.html" class="event-link"><div class="event-card poster"><span>Digital Poster Presentation</span></div></a>
+    <a href="paper-presentation.html" class="event-link"><div class="event-card paper"><span>Paper Presentation</span></div></a>
+    <a href="technical-quiz.html" class="event-link"><div class="event-card quiz"><span>Technical Quiz</span></div></a>
+    <a href="snap2prompt.html" class="event-link"><div class="event-card snap"><span>Snap2Prompt</span></div></a>
+    <a href="startup-pitch.html" class="event-link"><div class="event-card startup"><span>Start-Up Pitch</span></div></a>
+    <a href="reverse-coding.html" class="event-link"><div class="event-card reverse"><span>Reverse Coding</span></div></a>
   </div>
 
-  <!-- ABOUT FEST -->
-  <div class="about-fest">
+  <div class="tagline">
     <p><strong>Think in data.</strong></p>
     <p><strong>Learn with models.</strong></p>
     <p><strong>Lead with intelligence.</strong></p>
   </div>
-
 </section>
 
-<!-- COORDINATORS -->
 <section>
   <h3>Coordinators</h3>
   <div class="coord-box">
@@ -316,17 +327,22 @@ Be part of Techspak 2025 and create the intelligence that defines the next gener
   </div>
 </section>
 
-<!-- REGISTER -->
 <div class="register-section">
-  <div class="calling">Calling all curious minds and future innovators!</div>
+  <div class="calling">“Calling all curious minds and future innovators!”</div>
   <div class="register">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfE1cCY-2dmgObOa88RKQQvollhCOIraCSNFvwLuwZXbQvyHA/viewform" target="_blank">
-      Register Here
-    </a>
+    <a href="register.html">Register Here</a>
   </div>
 </div>
 
 <div class="spot"><strong>Spot Registrations Are Available</strong></div>
+
+
+
+<a class="location-btn"
+   href="https://www.google.com/maps?q=SRK+Institute+of+Technology+Enikepadu+Vijayawada"
+   target="_blank">
+  <i class="fas fa-map-marker-alt"></i> Location
+</a>
 
 <footer>
   <div>
@@ -338,8 +354,8 @@ Be part of Techspak 2025 and create the intelligence that defines the next gener
 </footer>
 
 <script>
-const cards = document.querySelectorAll('.event-card');
-const observer = new IntersectionObserver(entries=>{
+const cards=document.querySelectorAll('.event-card');
+const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add('show');
